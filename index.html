@@ -4,18 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="bootstrap-4.5.3-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="index.css">
-    <title>Ajax.io - Gestion de personnes</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Ajax.io</title>
 </head>
 
-<body class="container-fluid">
+<body>
+    <!-- en-tête de la page  -->
     <header class="row d-flex align-items-center">
         <img class="col-2" src="images/logo.png">
         <h1 class="col-8 text-center">Gestion de personnes</h1>
         <h2 class="col-2 text-center">Ajax.io</h2>
     </header>
-    <div class="offset-md-1 col-md-10 d-flex align-items-center">
+    <!-- formulaire de création de stagiaire -->
+    <div class="container-fluid col-lg-offset-4 col-lg-6 mt-5 bg-dark" id="formAjout">
+        <form class="p-3">
+            <div class="row">
+                <div class="col-lg-5">
+                    <input type="text" class="form-control m-2" id="addNom" placeholder="Nom">
+                    <input type="text" class="form-control m-2" id="addPrenom" placeholder="Prénom">
+                </div>
+            </div>
+            <div class="row d-flex justify-content-end" id="bouton">
+                <button class="btn btn-success m-2 col-lg-2" onClick="isOK(this.name,'^[a-z]+([- ][a-z]+){0,2}$');"
+                    type="button">Ajouter</button>
+                <button class="btn btn-danger m-2 col-lg-2" onClick="isOK(this.name,'^[a-z]+([- ][a-z]+){0,2}$');"
+                    type="button">Réinitialiser</button>
+            </div>
+        </form>
+    </div>
+    <!-- formulaire de recherche de stagiaire -->
+    <div class="container-fluid col-lg-offset-4 col-lg-6 mt-5 bg-dark" id="formSearch">
+        <form class="row p-3">
+            <div class="col-4">
+                <input type="text" class="form-control" placeholder="Nom">
+            </div>
+            <div class="col-4 offset-1">
+                <input type="text" class="form-control" id="maj2TXT" placeholder="Prénom">
+            </div>
+            <div class="col-2  offset-1">
+                <button type="submit" class="btn btn-secondary" onClick="isOK(this.name,'^[a-z]+([- ][a-z]+){0,2}$');"
+                    name="maj2">Rechercher</button>
+            </div>
+        </form>
+    </div>
+    <!-- tableau d'affichage des stagiaires   -->
+    <div class="container-fluid col-lg-offset-4 col-lg-6 mt-5 px-0">
         <table class="table">
             <thead class="thead-light">
                 <tr>
@@ -31,7 +68,7 @@
                     <td>Mark</td>
                     <td>Otto</td>
                     <td class="d-flex justify-content-end">
-                        <button type="button" class="btn btn-info mx-1">Modifier</button>
+                        <button type="button" class="btn btn-success mx-1">Modifier</button>
                         <button type="button" class="btn btn-danger mx-1">Supprimer</button>
                     </td>
                 </tr>
@@ -40,7 +77,7 @@
                     <td>Jacob</td>
                     <td>Thornton</td>
                     <td class="d-flex justify-content-end">
-                        <button type="button" class="btn btn-info mx-1">Modifier</button>
+                        <button type="button" class="btn btn-success mx-1">Modifier</button>
                         <button type="button" class="btn btn-danger mx-1">Supprimer</button>
                     </td>
                 </tr>
@@ -49,13 +86,14 @@
                     <td>Larry</td>
                     <td>the Bird</td>
                     <td class="d-flex justify-content-end">
-                        <button type="button" class="btn btn-info mx-1">Modifier</button>
+                        <button type="button" class="btn btn-success mx-1">Modifier</button>
                         <button type="button" class="btn btn-danger mx-1">Supprimer</button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
+    <script src=" js/script.js"> </script>
 </body>
 
 </html>
