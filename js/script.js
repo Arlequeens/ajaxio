@@ -52,8 +52,18 @@ function isOK(obj, expression) {
 // Auteur: Thomas
 $("#btnAjout").on("click", ajout);
 function ajout () {
-    confirm("Confirmation d'ajout");
-    // confirm("Confirmez vous l'ajout");
+
+    // Verif saisi
+    var regExp = /^[a-zA-Z]+([- ][a-zA-Z]+){0,2}$/;
+    var nom = $("#addNom").val();
+    var prenom = $("#addPrenom").val();
+
+    if(!regExp.test(nom) || !regExp.test(prenom)) {
+        alert("Saisi invalide");
+    }
+    else {
+        confirm("Confirmation d'ajout");
+    }
 }
 
 // Modifier un stagiaire
